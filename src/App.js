@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ClassConponent from './pages/ClassConponent';
 import { FunctionComponent } from './pages/FunctionComponent';
+import SetStatePage from './pages/SetStatePage';
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
   // );
   return <div className="App">
       {/* <ClassConponent /> */}
-      <FunctionComponent />
+      {/* <FunctionComponent /> */}
+      <SetStatePage />
   </div>
 }
 
