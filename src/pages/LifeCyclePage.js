@@ -14,10 +14,23 @@ export default class LifeCyclePage extends Component {
     this.state = { count: 0};
     console.log("construtor")
   }
-  //v17可能会废弃 一定要用就加 UNSAFE_ 前缀
-  componentWillMount(){
-    console.log("componentWillMount")
+
+  //新引入的生命周期函数 调用render方法之前调用 初始挂载及后续更新都会调用
+  //返回一个对象更新state 如果返回null 不更新任何内容
+  //用新的生命周期函数时 不可以同时用unsafe的那三个 会报错
+  static getDerivedStateFromProps(props, state){
+    console.log("getDerivedStateFromProps");
+    const {count } = state;
+    //这个生命周期的作用：可以更新state
+    return count > 5 ? {count : 0}:null;
+    // return null;
   }
+
+  //v17可能会废弃 一定要用就加 UNSAFE_ 前缀 
+  //可以通过命令加 在当前项目目录运行 npx react-codemod rename-unsafe-lifecycles 然后先执行代码合并 后边就直接回车
+  // UNSAFE_componentWillMount(){
+  //   console.log("componentWillMount")
+  // }
 
   componentDidMount(){
     console.log("componentDidMount");
@@ -30,13 +43,23 @@ export default class LifeCyclePage extends Component {
     return count !== 3;
     // return true;//可以返回 true和false
   }
-  //v17可能会废弃 一定要用就加 UNSAFE_ 前缀
-  componentWillUpdate(){
-    console.log("componentWillUpdate");
+
+  //返回值作为参数 传给componentDidUpdate(prevProps, prevState, snapshot)
+  getSnapshotBeforeUpdate(prevProps, prevState){
+    console.log("getSnapshotBeforeUpdate",prevProps, prevState);
+    return {
+      msg:"我是getSnapshotBeforeUpdate"
+    }
+    // return null;
   }
 
-  componentDidUpdate(){
-    console.log("componentDidUpdate");
+  //v17可能会废弃 一定要用就加 UNSAFE_ 前缀
+  // UNSAFE_componentWillUpdate(){
+  //   console.log("componentWillUpdate");
+  // }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    console.log("componentDidUpdate",prevProps, prevState, snapshot);
   }
 
   setCount = () => {
@@ -62,9 +85,9 @@ export default class LifeCyclePage extends Component {
 export class Child extends Component {
   //初次渲染时不会执行，只有咋子已挂载的组件接收新的props的时候，才会执行
   //v17可能会废弃 一定要用就加 UNSAFE_ 前缀
-  componentWillReceiveProps(nextProps){
-    console.log("componentWillReceiveProps" , nextProps);
-  }
+  // UNSAFE_componentWillReceiveProps(nextProps){
+  //   console.log("componentWillReceiveProps" , nextProps);
+  // }
   componentDidUnMount(){
     console.log("componentDidUnMount");
   }
