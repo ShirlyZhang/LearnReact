@@ -5,8 +5,14 @@ import './index.css';
 // import logo from "./logo.svg"
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
+import store from "./store/index"
 
 ReactDOM.render(<App />,document.getElementById('root'));
+
+store.subscribe(()=>{
+  console.log("state发生变化了");
+  ReactDOM.render(<App />,document.getElementById('root'));//重新render就可以了
+})
 
 // // If you want your app to work offline and load faster, you can change
 // // unregister() to register() below. Note this comes with some pitfalls.

@@ -4,7 +4,10 @@ import './App.css';
 // import ClassConponent from './pages/ClassConponent';
 // import { FunctionComponent } from './pages/FunctionComponent';
 // import SetStatePage from './pages/SetStatePage';
-import LifeCyclePage from './pages/LifeCyclePage';
+// import LifeCyclePage from './pages/LifeCyclePage';
+// import HomePage from './pages/HomePage';
+// import UserPage from './pages/UserPage';
+import ReduxPage from './pages/ReduxPage';
 
 
 function App() {
@@ -30,7 +33,10 @@ function App() {
       {/* <ClassConponent /> */}
       {/* <FunctionComponent /> */}
       {/* <SetStatePage /> */}
-      <LifeCyclePage />
+      {/* <LifeCyclePage /> */}
+      {/* <HomePage /> */}
+      {/* <UserPage /> */}
+      <ReduxPage />
   </div>
 }
 
