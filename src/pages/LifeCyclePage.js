@@ -44,6 +44,8 @@ export default class LifeCyclePage extends Component {
     // return true;//可以返回 true和false
   }
 
+  //最近一次渲染输出（提交到dom节点）之前调用
+  //使组件能在发生更改之前从dom中捕获一些信息（例如滚动位置）
   //返回值作为参数 传给componentDidUpdate(prevProps, prevState, snapshot)
   getSnapshotBeforeUpdate(prevProps, prevState){
     console.log("getSnapshotBeforeUpdate",prevProps, prevState);
