@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import ClassConponent from './pages/ClassConponent';
-import { FunctionComponent } from './pages/FunctionComponent';
-import SetStatePage from './pages/SetStatePage';
+// import ClassConponent from './pages/ClassConponent';
+// import { FunctionComponent } from './pages/FunctionComponent';
+// import SetStatePage from './pages/SetStatePage';
+import LifeCyclePage from './pages/LifeCyclePage';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
   return <div className="App">
       {/* <ClassConponent /> */}
       {/* <FunctionComponent /> */}
-      <SetStatePage />
+      {/* <SetStatePage /> */}
+      <LifeCyclePage />
   </div>
 }
 

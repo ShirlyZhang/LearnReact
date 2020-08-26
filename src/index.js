@@ -1,10 +1,10 @@
 import React from 'react';//负责逻辑控制 控制虚拟dom 数据=>vdom ；用到jsx时候必须要引入 虽然下面看起来没有用到
 import ReactDOM from 'react-dom';//渲染实际dom vdom=>dom
 import './index.css';
-import styles from './index.module.scss'
-import logo from "./logo.svg"
+// import styles from './index.module.scss'
+// import logo from "./logo.svg"
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />,document.getElementById('root'));
 
