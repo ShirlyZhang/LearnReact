@@ -7,7 +7,10 @@ import './App.css';
 // import LifeCyclePage from './pages/LifeCyclePage';
 // import HomePage from './pages/HomePage';
 // import UserPage from './pages/UserPage';
-import ReduxPage from './pages/ReduxPage';
+// import ReduxPage from './pages/ReduxPage';
+// import RouterPage from './pages/RouterPage';
+// import PureComponentPage from './pages/PureComponentPage';
+import HookPage from './pages/HookPage';
 
 
 function App() {
@@ -36,7 +39,10 @@ function App() {
       {/* <LifeCyclePage /> */}
       {/* <HomePage /> */}
       {/* <UserPage /> */}
-      <ReduxPage />
+      {/* <ReduxPage /> */}
+      {/* <RouterPage /> */}
+      {/* <PureComponentPage /> */}
+      <HookPage />
   </div>
 }
 
