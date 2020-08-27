@@ -3,8 +3,12 @@ import React, { useState, useEffect } from 'react'
 export default function HookPage(props) {
   //定义一个叫count的state变量 初始化为0
   const [count, setCount] = useState(0);
+  // const [date, setDate] = useState(new Date());
 
-  const [date, setDate] = useState(new Date());
+  //错误使用
+  // if(count){
+  //   const [num, setNum] = useState(0);
+  // }
 
   useEffect(()=>{
     //所有的副作用都写在这里
@@ -14,6 +18,39 @@ export default function HookPage(props) {
     document.title = `点击了${count}次`;
   },[count])//第二个参数是依赖项，表示只有这个值发生改变的时候才再次执行
 
+  // useEffect(()=>{
+  //   console.log("date effect");
+  //   //条件执行  timer只需要在didmount时执行
+  //   const timer = setInterval(() => {
+  //     setDate(new Date())
+  //   }, 1000);
+  //   //清除定时器以防⽌内存泄漏 如果是在class组件中 是在willUnMount中做
+  //   return ()=> clearInterval(timer);//类似willUnmount
+  // },[])// 只需要在didmount时执行 相当于没有依赖项 []
+
+  return (
+    <div>
+      <h3>HookPage</h3>
+      <p>{count}</p>
+      <button onClick={()=>{
+        setCount(count + 1)
+      }}>add</button>
+      <p>{useClock().toLocaleTimeString()}</p>
+    </div>
+  )
+}
+
+//错误操作
+// function getNum(){
+//   const [num, setNum] = useState(0);
+//   return num;
+// }
+
+//抽取出来 自定义hook，命名要以use开头 函数内部可以调⽤其他的 Hook
+//规则：不要在循环、条件判断或者⼦函数中调⽤
+//只能在 React 的函数组件中调⽤ Hook。不要在其他 JavaScript 函数中调⽤。（还有⼀个地⽅可以调⽤ Hook —— 就是⾃定义的 Hook 中。）
+function useClock() {
+  const [date, setDate] = useState(new Date());
   useEffect(()=>{
     console.log("date effect");
     //条件执行  timer只需要在didmount时执行
@@ -23,16 +60,7 @@ export default function HookPage(props) {
     //清除定时器以防⽌内存泄漏 如果是在class组件中 是在willUnMount中做
     return ()=> clearInterval(timer);//类似willUnmount
   },[])// 只需要在didmount时执行 相当于没有依赖项 []
-  return (
-    <div>
-      <h3>HookPage</h3>
-      <p>{count}</p>
-      <button onClick={()=>{
-        setCount(count + 1)
-      }}>add</button>
-      <p>{date.toLocaleTimeString()}</p>
-    </div>
-  )
+  return date;
 }
 
 // 1.Hook 是什么？ 
